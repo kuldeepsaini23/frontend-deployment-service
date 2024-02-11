@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 const subscriber = new Redis(
-  "rediss://default:AVNS_dFsy98x-cfeBvY0UGpA@redis-27238091-kuldeepsaini02311-43f7.a.aivencloud.com:17544"
+  process.env.REDIS_HOST,
 );
 
 const io = new Server({cors:'*'});
@@ -32,7 +32,7 @@ const config = {
 const ecsClient = new ECSClient({
   region: process.env.AWS_REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
