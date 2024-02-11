@@ -21,7 +21,7 @@ COPY main.sh main.sh
 # Copying the package.json file
 COPY package*.json .
 COPY  script.js script.js
-# COPY .env .env
+COPY .env .env
 
 RUN npm install
 
