@@ -1,13 +1,14 @@
 const { exec } = require("child_process");
 const path = require("path");
 const mime = require("mime-types");
-// file system module
-const fs = require("fs");
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const dotenv = require("dotenv");
 
 // Load environment variables from .env file
 dotenv.config();
+// file system module
+const fs = require("fs");
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+
 
 // const s3Client = new S3Client({
 //   region: process.env.AWS_REGION,
