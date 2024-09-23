@@ -17,7 +17,7 @@ app.use((req, res, next) => {
     //CUSTOm DOmain - DB Query
 
     // Proxy to the correct bucket
-    const resolveTo = `${BASE_PATH}${subdomain}`
+    const resolveTo = `${BASE_PATH}/${subdomain}`
 
     // create a proxy server to the correct bucket
     return proxy.web(req, res, { target: resolveTo, changeOrigin: true});

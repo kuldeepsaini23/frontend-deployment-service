@@ -43,6 +43,20 @@ app.use(express.json());
 app.post("/project", async (req, res) => {
   const { gitURL, slug } = req.body;
   const projectSlug = slug ? slug : generateSlug();
+  if(!gitURL){
+    return res.status(400).json({
+      status: "error",
+      message: "gitURL is required",
+    });
+  }
+
+  console.log(
+    process.env.SUBNET1,
+    process.env.SUBNET2,
+    process.env.SUBNET3,
+    process.env.SECURITY_GROUP,
+    process.env.TASK_DEFIANTION_NAME,
+  )
 
   // Spin the container
   const command = new RunTaskCommand({
